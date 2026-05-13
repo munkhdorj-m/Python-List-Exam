@@ -25,8 +25,5 @@ jobs:
       - name: Install dependencies
         run: pip install pytest
 
-      - name: Run tests quietly
-        run: pytest -q --tb=no > result.txt || true
-
-      - name: Calculate score
-        run: python grade.py
+      - name: Run tests (FAIL if wrong)
+        run: pytest -q --tb=no
