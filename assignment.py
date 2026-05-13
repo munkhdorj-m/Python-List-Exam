@@ -7,6 +7,7 @@ def sum_elements(lst):
 
 
 # Exercise 2
+
 def find_smallest(lst):
     smallest = lst[0]
     for num in lst:
