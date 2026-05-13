@@ -1,94 +1,47 @@
 {
   "tests": [
     {
-      "name": "exercise1_basic",
+      "name": "exercise1",
       "setup": "sudo -H pip3 install -r requirements.txt",
-      "run": "pytest test_assignment.py::test1_basic",
+      "run": "pytest -q --tb=no test_assignment.py::test1",
       "comparison": "included",
       "timeout": 5,
-      "points": 1
+      "points": 2
     },
     {
-      "name": "exercise1_edge",
-      "run": "pytest test_assignment.py::test1_edge",
+      "name": "exercise2",
+      "run": "pytest -q --tb=no test_assignment.py::test2",
       "comparison": "included",
       "timeout": 5,
-      "points": 1
-    },
-
-    {
-      "name": "exercise2_basic",
-      "run": "pytest test_assignment.py::test2_basic",
-      "comparison": "included",
-      "timeout": 5,
-      "points": 1
+      "points": 2
     },
     {
-      "name": "exercise2_edge",
-      "run": "pytest test_assignment.py::test2_edge",
+      "name": "exercise3",
+      "run": "pytest -q --tb=no test_assignment.py::test3",
       "comparison": "included",
       "timeout": 5,
-      "points": 1
-    },
-
-    {
-      "name": "exercise3_basic",
-      "run": "pytest test_assignment.py::test3_basic",
-      "comparison": "included",
-      "timeout": 5,
-      "points": 1
+      "points": 2
     },
     {
-      "name": "exercise3_edge",
-      "run": "pytest test_assignment.py::test3_edge",
+      "name": "exercise4",
+      "run": "pytest -q --tb=no test_assignment.py::test4",
       "comparison": "included",
       "timeout": 5,
-      "points": 1
-    },
-
-    {
-      "name": "exercise4_basic",
-      "run": "pytest test_assignment.py::test4_basic",
-      "comparison": "included",
-      "timeout": 5,
-      "points": 1
+      "points": 2
     },
     {
-      "name": "exercise4_edge",
-      "run": "pytest test_assignment.py::test4_edge",
+      "name": "exercise5",
+      "run": "pytest -q --tb=no test_assignment.py::test5",
       "comparison": "included",
       "timeout": 5,
-      "points": 1
-    },
-
-    {
-      "name": "exercise5_basic",
-      "run": "pytest test_assignment.py::test5_basic",
-      "comparison": "included",
-      "timeout": 5,
-      "points": 1
+      "points": 2
     },
     {
-      "name": "exercise5_edge",
-      "run": "pytest test_assignment.py::test5_edge",
+      "name": "exercise6",
+      "run": "pytest -q --tb=no test_assignment.py::test6",
       "comparison": "included",
       "timeout": 5,
-      "points": 1
-    },
-
-    {
-      "name": "exercise6_basic",
-      "run": "pytest test_assignment.py::test6_basic",
-      "comparison": "included",
-      "timeout": 5,
-      "points": 1
-    },
-    {
-      "name": "exercise6_edge",
-      "run": "pytest test_assignment.py::test6_edge",
-      "comparison": "included",
-      "timeout": 5,
-      "points": 1
+      "points": 2
     }
   ]
 }
