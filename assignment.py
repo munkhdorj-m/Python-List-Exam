@@ -1,5 +1,5 @@
 # Exercise 1
-def sum_elements(lst):
+ def sum_elements(lst):
     total = 0
     for num in lst:
         total += num
