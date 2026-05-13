@@ -1,44 +1,82 @@
 import pytest
 import inspect
-from assignment import index_of_highest_number, find_all_indices, swap_even_odd_indices
 
-def check_contains_loop(function):
-    source = inspect.getsource(function)
-    return 'for' in source or 'while' in source
+from assignment import (
+    sum_elements,
+    find_smallest,
+    count_occurrences,
+    move_zeroes,
+    find_indices,
+    mirror_list
+)
 
-@pytest.mark.parametrize("numbers, expected", [
-    ([3, 8, 2, 5, 10, 7], 4),
-    ([12, 23, 43, 11, 9], 2),
-    ([113, 234, 145, 299, 155], 3),
-    ([5], 0),
-    ([3, 3, 3], 0),
-    ([-10, -5, -30], 1),
-    ([0, -1, 2, -3], 2)
+
+def uses_loop(func):
+    source = inspect.getsource(func)
+    return "for" in source or "while" in source
+
+
+# Exercise 1
+@pytest.mark.parametrize("lst, expected", [
+    ([8, 12, 5, 10], 35),
+    ([1, 1, 1, 1, 1], 5),
+    ([0, 0, 0], 0),
 ])
-def test1(numbers, expected):
-    assert index_of_highest_number(numbers) == expected
-    assert check_contains_loop(index_of_highest_number)
+def test1(lst, expected):
+    assert sum_elements(lst) == expected
+    assert uses_loop(sum_elements)
 
-@pytest.mark.parametrize("numbers, target, expected", [
-    ([3, 8, 3, 5, 3, 7], 3, [0, 2, 4]),
-    ([12, 23, 43, 11, 23], 23, [1, 4]),
-    ([113, 234, 145, 113, 155], 113, [0, 3]),
-    ([3, 8, 5, 7], 4, []),
-    ([], 10, []),
-    ([3, 2, 3, 4, 3], 3, [0, 2, 4])
-])
-def test2(numbers, target, expected):
-    assert find_all_indices(numbers, target) == expected
-    assert check_contains_loop(find_all_indices)
 
-@pytest.mark.parametrize("numbers, expected", [
-    ([10, 20, 30, 40, 50, 60], [20, 10, 40, 30, 60, 50]),
-    ([1, 2, 3, 4, 5, 6, 7, 8], [2, 1, 4, 3, 6, 5, 8, 7]),
-    ([100, 200, 300, 400], [200, 100, 400, 300]),
-    ([1, 2, 3, 4, 5], [2, 1, 4, 3, 5]),
-    ([100], [100]),
-    ([], [])
+# Exercise 2
+@pytest.mark.parametrize("lst, expected", [
+    ([7, -4, 9, 2], -4),
+    ([100, 50, 25], 25),
+    ([-1, -5, -2], -5),
 ])
-def test3(numbers, expected):
-    assert swap_even_odd_indices(numbers) == expected
-    assert check_contains_loop(swap_even_odd_indices)
+def test2(lst, expected):
+    assert find_smallest(lst) == expected
+    assert uses_loop(find_smallest)
+
+
+# Exercise 3
+@pytest.mark.parametrize("lst, target, expected", [
+    ([4, 2, 4, 7, 4], 4, 3),
+    ([1, 2, 3], 5, 0),
+    ([9, 9, 9], 9, 3),
+])
+def test3(lst, target, expected):
+    assert count_occurrences(lst, target) == expected
+    assert uses_loop(count_occurrences)
+
+
+# Exercise 4
+@pytest.mark.parametrize("lst, expected", [
+    ([0, 4, 0, 2, 9], [4, 2, 9, 0, 0]),
+    ([1, 2, 3], [1, 2, 3]),
+    ([0, 0, 1], [1, 0, 0]),
+])
+def test4(lst, expected):
+    assert move_zeroes(lst) == expected
+    assert uses_loop(move_zeroes)
+
+
+# Exercise 5
+@pytest.mark.parametrize("lst, target, expected", [
+    ([5, 1, 5, 3, 5], 5, [0, 2, 4]),
+    ([7, 8, 9], 1, []),
+    ([2, 2, 2], 2, [0, 1, 2]),
+])
+def test5(lst, target, expected):
+    assert find_indices(lst, target) == expected
+    assert uses_loop(find_indices)
+
+
+# Exercise 6
+@pytest.mark.parametrize("lst, expected", [
+    ([1, 2, 3], [1, 2, 3, 3, 2, 1]),
+    ([5, 8], [5, 8, 8, 5]),
+    ([7], [7, 7]),
+])
+def test6(lst, expected):
+    assert mirror_list(lst) == expected
+    assert uses_loop(mirror_list)
