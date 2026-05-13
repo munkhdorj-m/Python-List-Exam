@@ -1,7 +1,7 @@
 # Exercise 1
 def sum_elements(lst):
     pass
-  
+   
 
 # Exercise 2
 def find_smallest(lst):
