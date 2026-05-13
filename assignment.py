@@ -1,9 +1,6 @@
 # Exercise 1
 def sum_elements(lst):
-    total = 0
-    for num in lst:
-        total += num
-    return total
+    pass
 
 
 # Exercise 2
