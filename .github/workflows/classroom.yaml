@@ -1,16 +1,32 @@
-    name: GitHub Classroom Workflow
+name: GitHub Classroom Workflow
 
-    on: 
-      push: 
-        paths: 
-          # Do not run workflow unless these files were modified
-          - 'assignment.py' 
-          - 'test_assignment.py' 
-    permissions: write-all
-    jobs:
-      build:
-        name: Autograding
-        runs-on: ubuntu-latest
-        steps:
-          - uses: actions/checkout@v2
-          - uses: education/autograding@v1
+on:
+  push:
+    paths:
+      - 'assignment.py'
+      - 'test_assignment.py'
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    name: Autograding
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: pip install pytest
+
+      - name: Run tests quietly
+        run: pytest -q --tb=no > result.txt || true
+
+      - name: Calculate score
+        run: python grade.py
